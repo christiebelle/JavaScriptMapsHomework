@@ -22,5 +22,25 @@ MapMaker.prototype.addInfoWindowToMarker = function () {
    marker.addListener('click', function(){
     infowindow.open(this.googleMap, marker);
   })
+};
 }
+
+MapMaker.prototype.addInfoWindowToMarker2 = function () {
+  let infowindow = new google.maps.InfoWindow({
+    content: "This is the PPG Paints Arena. Home of the Pittsburgh Penguins. The worstest hockey team to ever play the ice sport. We hate this terrible team, they do not have epic gingers. They have Sidney Crosby. Sidney Crosby's favorite Star Wars character is Jar-Jar Binks."
+  });
+ for(marker of this.markers){
+   marker.addListener('click', function(){
+    infowindow.open(this.googleMap, marker);
+  })
+};
+}
+
+MapMaker.prototype.changeLocation = function () {
+  const container = document.querySelector('#mapDiv');
+  const center = {lat: 40.440083, lng: -79.989424};
+  const zoom = 14;
+  const map = new MapMaker(container, center, zoom);
+  map.addMarker(center);
+  map.addInfoWindowToMarker2();
 };
