@@ -6,7 +6,7 @@ const initialise = function(){
 
     const map = new MapMaker(container, center, zoom);
     map.addMarker(center);
-    map.addClickEvent();
+    map.addInfoWindowToMarker();
 
     const changeLocation = document.getElementById('change-location');
     changeLocation.addEventListener('click', map.changeLocation);

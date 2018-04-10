@@ -14,15 +14,17 @@ MapMaker.prototype.addMarker = function (coords) {
   this.markers.push(marker);
 };
 
-// MapMaker.prototype.addClickEvent = function () {
-//   google.maps.event.addListener(this.googleMap, 'click', function(event){
-//     const coords = {lat: event.latLng.lat(), lng: event.latLng.lng()};
-//     this.addMarker(coords);
-//     }.bind(this));
-//   };
-
-// MapMaker.prototype.bounceMarkers = function () {
-//   this.markers.forEach(function(marker){
-//     marker.setAnimation(google.maps.Animation.BOUNCE);
-//   })
+MapMaker.prototype.addInfoWindowToMarker = function () {
+  let infowindow = new google.maps.InfoWindow({
+    content: "This is the Wells Fargo Center.
+              Home of the Philadelphia Flyers.
+              The greatest hockey team to ever play the ice sport.
+              We like this trash team, they have epic gingers.
+              And Michael Raffl. We like Michael Raffl."
+  });
+ for(marker of this.markers){
+   marker.addListener('click', function(){
+    infowindow.open(this.googleMap, marker);
+  })
+}
 };
