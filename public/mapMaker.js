@@ -16,11 +16,7 @@ MapMaker.prototype.addMarker = function (coords) {
 
 MapMaker.prototype.addInfoWindowToMarker = function () {
   let infowindow = new google.maps.InfoWindow({
-    content: "This is the Wells Fargo Center.
-              Home of the Philadelphia Flyers.
-              The greatest hockey team to ever play the ice sport.
-              We like this trash team, they have epic gingers.
-              And Michael Raffl. We like Michael Raffl."
+    content: "This is the Wells Fargo Center. Home of the Philadelphia Flyers. The greatest hockey team to ever play the ice sport. We like this trash team, they have epic gingers. And Michael Raffl. We like Michael Raffl."
   });
  for(marker of this.markers){
    marker.addListener('click', function(){
